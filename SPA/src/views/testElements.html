@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pruebas de elemenos de Material design</title>
+    <script>
+      import { MDCDataTable } from "@material/data-table";
+      const dataTable = new MDCDataTable(document.querySelector(".mdc-data-table"));
+      /*
+      @use "@material/checkbox"; // Required only for data table with row selection.
+        @use "@material/icon-button"; // Required only for data table with column sorting.
+@use "@material/data-table/data-table";
+
+@include checkbox.core-styles;
+@include icon-button.core-styles;
+@include data-table.core-styles;
+@include data-table.theme-baseline;
+      */
+    </script>
+  </head>
+  <body>
+    <div class="test-elements-container">
+      <header>
+        <h1>Pruebas de componentes de Material Design</h1>
+        <a href="/">Volver</a>
+      </header>
+      <p>https://github.com/material-components/material-web/blob/main/docs/components/text-field.md</p>
+      <main class="test-main-content">
+        <!--Seccion de pruebas para campos de texto-->
+        <section class="test-container-textFields section">
+          <!-- <md-filled-text-field label="Label" value="Value"></md-filled-text-field> -->
+        </section>
+
+        <!--Seccion de pruebas para listas-->
+        <section class="test-container-lists section">
+          <md-list style="max-width: 300px">
+            <md-list-item>
+              Lit
+              <svg slot="start" style="height: 24px" viewBox="0 0 160 200">
+                <path
+                  fill="currentColor"
+                  d="m160 80v80l-40-40zm-40 40v80l40-40zm0-80v80l-40-40zm-40 40v80l40-40zm-40-40v80l40-40zm40-40v80l-40-40zm-40 120v80l-40-40zm-40-40v80l40-40z"
+                />
+              </svg>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item>
+              Polymer
+              <md-icon slot="start">polymer</md-icon>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item>
+              Angular
+              <svg slot="start" style="height: 24px" viewBox="0 0 250 250">
+                <polygon points="108,135.4 125,135.4 125,135.4 125,135.4 142,135.4 125,94.5   " />
+                <path
+                  d="M125,30L125,30L125,30L31.9,63.2l14.2,123.1L125,230l0,0l0,0l78.9-43.7l14.2-123.1L125,30z M183.1,182.6h-21.7h0
+                        l-11.7-29.2H125h0h0h-24.7l-11.7,29.2h0H66.9h0L125,52.1l0,0l0,0l0,0l0,0L183.1,182.6L183.1,182.6z"
+                />
+              </svg>
+            </md-list-item>
+          </md-list>
+        </section>
+
+        <!--Seccion de pruebas para tablas-->
+        <section class="test-container-tables"></section>
+      </main>
+    </div>
+  </body>
+</html>
