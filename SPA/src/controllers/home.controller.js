@@ -21,5 +21,12 @@ export default () => {
     alert(JSON.stringify(dataForm));
   });
 
+  divHomeCont.querySelectorAll(".app-nav-item").forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.location.hash = e.target.getAttribute("href");
+    });
+  });
+
   return divHomeCont;
 };

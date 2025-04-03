@@ -13,6 +13,9 @@ const ROUTER = async (route) => {
     case "": {
       return content.appendChild(PAGES.home());
     }
+    case "#/": {
+      return content.appendChild(PAGES.home());
+    }
     case "#/post": {
       return content.appendChild(await PAGES.post());
     }
