@@ -12,6 +12,7 @@
   color: #3D68A7;
   border-right: 1px solid #c8c8c8;
   transition: width 0.3s ease;
+  font-family: "Poppins", sans-serif;
 }
 
 .sidebar-container.collapsed {
@@ -95,5 +96,4 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }

@@ -44,7 +44,7 @@ export default function Sidebar() {
 
             {/* Segundo Dashboard como Submenú */}
             <li className="sidebar-body-list-item submenu-item">
-              <div onClick={toggleSubmenu} className="submenu-toggle">
+              <div className="submenu-toggle" onClick={toggleSubmenu}>
                 <ViewModule className="sidebar-body-list-item-icon" />
                 {!isCollapsed && (
                   <>
