@@ -28,10 +28,10 @@ export default function Topbar() {
     <>
       <div className="topbar-container">
         <div className="topbar-left">
-          <Link component={RouterLink} to="/layout">
-            <img src={logo} alt="logo" />
+          <Link component={RouterLink} to="/layout/dashboard">
+            <img src={logo} alt="logo" className="topbar-left-logo" />
           </Link>
-          <h2>Modo: Administrador</h2>
+          <h3>Modo: Administrador</h3>
         </div>
 
         <div className="topbar-right">

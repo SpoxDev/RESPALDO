@@ -18,22 +18,6 @@
   gap: 20px;
   padding: 0.5rem;
 }
-/***********************! CONTENIDO DE LA TABLA*********************************/
-/*? Estilos del input de busqueda */
-.users-container-table-search {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
-}
-.users-input-search{
-    width: 360px !important;
-    align-self: flex-start ;
-    box-shadow: 0 3px 4px 0px rgba(0, 0, 0, 0.1);
-}
-.users-container-table-search-info {
-  cursor: pointer;
-}
 
 .users-container-table {
   width: 75%;
@@ -43,27 +27,3 @@
   flex-direction: column;
   gap: 20px;
 }
-/** Estilos propias del componente de mui - Row de encabezado de la tabla */
-.css-yseucu-MuiDataGrid-columnHeaderRow{
-    background-color: #3D68A7 !important;
-    color: white !important;
-}
-/** Estilos propias del componente de mui - Row de encabezado de la tabla */
-.MuiDataGrid-filler{
-    display: none !important;
-}
-
-.users-container-table-buttons {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  justify-content: space-between;
-}
-
-.users-container-table-buttons-left, .users-container-table-buttons-right {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-}
-
-

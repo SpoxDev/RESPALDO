@@ -6,9 +6,10 @@ import DataTable from "../components/TABLE/Table";
 import { users } from "../components/USERS/mockdata";
 // Import del encabezado de la tabla
 import { HeaderTable } from "../components/USERS/HeaderTable";
-// Import del modelo de paginación
+// Import de los estilos de la tabla
+import "../assets/styles/table.css";
 
-const paginationModel = { page: 0, pageSize: 5 };
+const paginationModel = { page: 0, pageSize: 5, pageCount: 10 };
 
 export default function Users() {
   return (

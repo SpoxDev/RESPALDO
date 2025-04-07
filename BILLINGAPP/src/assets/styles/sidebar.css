@@ -53,16 +53,23 @@
 }
 
 .sidebar-body-list {
+  display: flex;
+  flex-direction: column;
   list-style: none;
   padding: 0;
   margin: 0;
   gap: 0.5rem;
+  height: 100%;
 }
 
 .sidebar-body-list-item {
-  margin-bottom: 0.5rem;
   border-bottom: 1px solid #c8c8c8;
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none !important;
+  color: inherit;
 }
 
 .sidebar-body-list-item-icon {
@@ -71,25 +78,37 @@
 
 .sidebar-body-list-item-text {
   font-size: 1.2rem !important;
+  width: 100% !important;
 }
 
+.expand-less-sub-menu {
+  align-self: flex-end !important;
+}
 
-.sidebar-body-list-item a {
+.expand-more-sub-menu {
+  align-self: flex-end !important;
+}
+
+.sidebar-body-list-item .sidebar-submenu-item {
   display: flex;
   align-items: center;
-  text-decoration: none;
+  text-decoration: none !important;
   color: inherit;
   border-radius: 4px;
   transition: background-color 0.3s ease;
 }
 
-.sidebar-body-list-item a:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+.sidebar-submenu-item {
+  width: 100%;
+  padding: 0.5rem;  
+}
+.sidebar-submenu-item:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
 }
 
 .sidebar-submenu {
   padding-left: 1.7rem;
-  list-style: none;
+  list-style: none;  
 }
 
 .submenu-toggle {

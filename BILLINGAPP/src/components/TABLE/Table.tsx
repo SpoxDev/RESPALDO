@@ -9,7 +9,11 @@ import TextField from "@mui/material/TextField";
 import InfoIcon from "@mui/icons-material/Info";
 import { useState } from "preact/hooks";
 import Edit from "@mui/icons-material/Edit";
-import { Delete, Download, Refresh } from "@mui/icons-material";
+import { Add, Delete, Download, Refresh } from "@mui/icons-material";
+// Import del modal de nuevo usuario
+import ModalNewUser from "../LOGIN/Modal-NewUser";
+// Import del css de la tabla
+import "../../assets/styles/table.css";
 
 // Props para el componente
 interface TableProps {
@@ -25,6 +29,10 @@ export default function DataTable({
 }: TableProps) {
   const [search, setSearch] = useState("");
   const [selectedRows, setSelectedRows] = useState<any[]>([]); // Estado para filas seleccionadas
+  // COnstante para el modal
+  const [openModalNewUser, setOpenModalNewUser] = useState(false);
+  const handleOpenModalNewUser = () => setOpenModalNewUser(true);
+  const handleCloseModalNewUser = () => setOpenModalNewUser(false);
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearch((event.target as HTMLInputElement).value);
@@ -47,9 +55,9 @@ export default function DataTable({
 
   return (
     <>
-      <div className="users-container-table-search">
+      <div className="container-table-search">
         <TextField
-          className={"users-input-search"}
+          className={"container-table-search-input"}
           placeholder={"Buscar usuario"}
           slotProps={{
             input: {
@@ -63,9 +71,9 @@ export default function DataTable({
           variant="outlined"
           onChange={handleSearch}
         />
-        <Tooltip title="Buscar usuario">
+        <Tooltip title="Buscar usuario" placement="right" arrow>
           <InfoIcon
-            className="users-container-table-search-info"
+            className="container-table-search-info"
             color="secondary"
             aria-label="info"
           />
@@ -82,8 +90,8 @@ export default function DataTable({
           onRowSelectionModelChange={handleSelectionModelChange} // Actualiza el estado de filas seleccionadas
         />
       </Paper>
-      <div className="users-container-table-buttons">
-        <section className="users-container-table-buttons-left">
+      <div className="container-table-buttons">
+        <section className="container-table-buttons-left">
           <Button variant="outlined" color="warning" endIcon={<Refresh />}>
             Refrescar
           </Button>
@@ -91,8 +99,13 @@ export default function DataTable({
             Excel
           </Button>
         </section>
-        <section className="users-container-table-buttons-right">
-          <Button variant="contained" color="primary">
+        <section className="container-table-buttons-right">
+          <Button
+            variant="contained"
+            color="primary"
+            endIcon={<Add />}
+            onClick={handleOpenModalNewUser}
+          >
             Nuevo
           </Button>
           <Button
@@ -113,6 +126,7 @@ export default function DataTable({
           </Button>
         </section>
       </div>
+      <ModalNewUser open={openModalNewUser} onClose={handleCloseModalNewUser} />
     </>
   );
 }

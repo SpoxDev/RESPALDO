@@ -7,7 +7,7 @@ const ROUTES = {
   },
   /*Ruta padre dashboard*/
   LAYOUT: {
-    /*La ruta base del padre es /dashboard y a partir de ahi se generan las demas rutas  */
+    /*La ruta base del padre es /layout y a partir de ahi se generan las demas rutas  */
     BASE: "/layout",
     get FCHILD() {
       /*Esta es la ruta que se usara para mostrar los modulos dependiendo el usuario en login */

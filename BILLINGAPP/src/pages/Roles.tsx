@@ -3,7 +3,10 @@ import DataTable from "../components/TABLE/Table";
 import { roles } from "../components/ROLES/roles-mockdata";
 // Import del encabezado de la tabla
 import { HeaderTable } from "../components/ROLES/roles-header-table";
-// Import del modelo de paginación
+// Import de los estilos
+import "../assets/styles/roles.css";
+// Import de los estilos de la tabla
+import "../assets/styles/table.css";
 
 const paginationModel = { page: 0, pageSize: 5 };
 

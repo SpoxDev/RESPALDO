@@ -1,4 +1,6 @@
+// Import de los estilos
 import "../assets/styles/login.css";
+// Import de los componentes de material ui
 import InputLabel from "@mui/material/InputLabel";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import IconButton from "@mui/material/IconButton";
@@ -7,18 +9,20 @@ import Button from "@mui/material/Button";
 import FormControl from "@mui/material/FormControl";
 import { AccountCircle, Visibility, VisibilityOff } from "@mui/icons-material";
 import { useState } from "react";
+// Import de los enlaces de react router
 import { Link as RouterLink, useNavigate } from "react-router-dom";
+// Import de los componentes de material ui
 import CircularProgress from "@mui/material/CircularProgress";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-
   const [loading, setLoading] = useState(false);
 
   // Datos de prueba
   const validUser = {
     username: "admin",
+    role: "admin",
     password: "admin",
   };
 
@@ -27,7 +31,9 @@ export default function Login() {
   const [passwordError, setPasswordError] = useState("");
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-  const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleMouseDownPassword = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
     event.preventDefault();
   };
 
@@ -69,7 +75,9 @@ export default function Login() {
       <div className="login-container-form">
         <header className="login-header">
           <h1 className="login-header-title">Inicio de sesión</h1>
-          <p className="login-header-description">Bienvenido, por favor ingrese sus datos para continuar</p>
+          <p className="login-header-description">
+            Bienvenido, por favor ingrese sus datos para continuar
+          </p>
         </header>
 
         <form onSubmit={handleLogin} className="login-form">
@@ -89,7 +97,9 @@ export default function Login() {
               label="Usuario"
               required
             />
-            {usernameError && <p className="login-error-text">{usernameError}</p>}
+            {usernameError && (
+              <p className="login-error-text">{usernameError}</p>
+            )}
           </FormControl>
 
           <FormControl className="login-form-control" error={!!passwordError}>
@@ -103,7 +113,9 @@ export default function Login() {
               endAdornment={
                 <InputAdornment position="end">
                   <IconButton
-                    aria-label={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
+                    aria-label={
+                      showPassword ? "Ocultar contraseña" : "Mostrar contraseña"
+                    }
                     onClick={handleClickShowPassword}
                     onMouseDown={handleMouseDownPassword}
                     edge="end"
@@ -115,7 +127,9 @@ export default function Login() {
               label="Contraseña"
               required
             />
-            {passwordError && <p className="login-error-text">{passwordError}</p>}
+            {passwordError && (
+              <p className="login-error-text">{passwordError}</p>
+            )}
           </FormControl>
 
           <Button
@@ -124,7 +138,9 @@ export default function Login() {
             color="primary"
             type="submit"
             disabled={loading}
-            startIcon={loading ? <CircularProgress size={24} color="inherit" /> : null}
+            startIcon={
+              loading ? <CircularProgress size={24} color="inherit" /> : null
+            }
           >
             {loading ? "Cargando..." : "Ingresar"}
           </Button>
@@ -137,7 +153,8 @@ export default function Login() {
             <p>1234567890</p>
           </section>
           <p>
-            ¿No tienes una cuenta? <RouterLink to="/register">Regístrate</RouterLink>
+            ¿No tienes una cuenta?{" "}
+            <RouterLink to="/register">Regístrate</RouterLink>
           </p>
         </div>
       </div>
