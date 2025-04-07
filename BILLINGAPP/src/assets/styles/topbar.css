@@ -1,0 +1,42 @@
+:root {
+  --topbar-background-color: #0b557f;
+}
+
+.topbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 50px;
+  width: 100%;
+  background-color: var(--topbar-background-color);
+  color: #fff;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Poppins", sans-serif;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.topbar-right-list {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.topbar-right-list-item {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 10px;
+  cursor: pointer;
+  color: #fff !important;
+}
