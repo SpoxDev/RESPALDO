@@ -1,5 +1,6 @@
 //? Estilos sidebar
 import "../assets/styles/sidebar.css";
+import { Dashboard, ViewModule } from "@mui/icons-material"; // añade más íconos si necesitas
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { IconButton } from "@mui/material";
@@ -22,11 +23,11 @@ export default function Sidebar() {
       <div className={`sidebar-container ${isCollapsed ? "collapsed" : ""}`}>
         <div className="sidebar-header">
           <div className="sidebar-header-button">
-            <IconButton color="primary" onClick={toggleSidebar}>
+            <IconButton sx={{ color: "#0b557f" }} onClick={toggleSidebar}>
               {isCollapsed ? <Menu /> : <ChevronLeft />}
             </IconButton>
           </div>
-          <h1 className={isCollapsed ? "hidden" : ""}>Sidebar</h1>
+          {/* <h1 className={isCollapsed ? "hidden" : ""}>Sidebar</h1> */}
         </div>
 
         <div className="sidebar-body">
@@ -34,26 +35,29 @@ export default function Sidebar() {
             {/* Primer Dashboard */}
             <li className="sidebar-body-list-item">
               <Link to="/layout/dashboard">
-                <span className={isCollapsed ? "hidden" : ""}>Dashboard</span>
+                <Dashboard className="sidebar-body-list-item-icon" />
+                {!isCollapsed && (
+                  <span className="sidebar-body-list-item-text">Dashboard</span>
+                )}
               </Link>
             </li>
 
             {/* Segundo Dashboard como Submenú */}
             <li className="sidebar-body-list-item submenu-item">
               <div onClick={toggleSubmenu} className="submenu-toggle">
+                <ViewModule className="sidebar-body-list-item-icon" />
                 {!isCollapsed && (
                   <>
-                    <span>Módulos</span>
+                    <span className="sidebar-body-list-item-text">Módulos</span>
                     {isSubmenuOpen ? <ExpandLess /> : <ExpandMore />}
                   </>
                 )}
-                {isCollapsed && <ExpandMore />}
               </div>
 
               {!isCollapsed && isSubmenuOpen && (
                 <ul className="sidebar-submenu">
                   <li>
-                    <Link to="/layout/modulo1">Módulo 1</Link>
+                    <Link to="/layout/users">Módulo 1</Link>
                   </li>
                   <li>
                     <Link to="/layout/modulo2">Módulo 2</Link>

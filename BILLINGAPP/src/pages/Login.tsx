@@ -12,33 +12,56 @@ import CircularProgress from "@mui/material/CircularProgress";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
-  const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-  };
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
 
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault(); // Evita que la página se recargue
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      navigate("/layout/dashboard");
-    }, 2000);
-  };
-
   // Datos de prueba
-  const data = {
+  const validUser = {
     username: "admin",
     password: "admin",
   };
-  const [formData, setFormData] = useState(data);
+
+  const [formData, setFormData] = useState({ username: "", password: "" });
+  const [usernameError, setUsernameError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target as HTMLInputElement;
     setFormData({ ...formData, [name]: value });
+
+    // Limpiar errores al escribir
+    if (name === "username") setUsernameError("");
+    if (name === "password") setPasswordError("");
+  };
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    setTimeout(() => {
+      const isUsernameCorrect = formData.username === validUser.username;
+      const isPasswordCorrect = formData.password === validUser.password;
+
+      if (isUsernameCorrect && isPasswordCorrect) {
+        navigate("/layout/dashboard");
+      } else {
+        if (!isUsernameCorrect) {
+          setUsernameError("Usuario incorrecto");
+        }
+
+        if (!isPasswordCorrect) {
+          setPasswordError("Contraseña incorrecta");
+        }
+      }
+
+      setLoading(false);
+    }, 1000);
   };
 
   return (
@@ -49,9 +72,8 @@ export default function Login() {
           <p className="login-header-description">Bienvenido, por favor ingrese sus datos para continuar</p>
         </header>
 
-        {/* Formulario para manejar el login */}
         <form onSubmit={handleLogin} className="login-form">
-          <FormControl className="login-form-control">
+          <FormControl className="login-form-control" error={!!usernameError}>
             <InputLabel htmlFor="login-outlined-username">Username</InputLabel>
             <OutlinedInput
               id="login-outlined-username"
@@ -67,17 +89,21 @@ export default function Login() {
               label="Usuario"
               required
             />
+            {usernameError && <p className="login-error-text">{usernameError}</p>}
           </FormControl>
 
-          <FormControl className="login-form-control">
+          <FormControl className="login-form-control" error={!!passwordError}>
             <InputLabel htmlFor="login-outlined-password">Password</InputLabel>
             <OutlinedInput
               id="login-outlined-password"
               type={showPassword ? "text" : "password"}
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
               endAdornment={
                 <InputAdornment position="end">
                   <IconButton
-                    aria-label={showPassword ? "hide the password" : "display the password"}
+                    aria-label={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
                     onClick={handleClickShowPassword}
                     onMouseDown={handleMouseDownPassword}
                     edge="end"
@@ -87,20 +113,18 @@ export default function Login() {
                 </InputAdornment>
               }
               label="Contraseña"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
               required
             />
+            {passwordError && <p className="login-error-text">{passwordError}</p>}
           </FormControl>
 
           <Button
             className="login-form-button"
             variant="contained"
             color="primary"
-            type="submit" // Asegura que el botón envíe el formulario
-            disabled={loading} // Deshabilitar el botón mientras carga
-            startIcon={loading ? <CircularProgress size={24} color="inherit" /> : null} // Progreso circular dentro del botón
+            type="submit"
+            disabled={loading}
+            startIcon={loading ? <CircularProgress size={24} color="inherit" /> : null}
           >
             {loading ? "Cargando..." : "Ingresar"}
           </Button>
