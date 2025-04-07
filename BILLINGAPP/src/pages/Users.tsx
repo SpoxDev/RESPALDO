@@ -1,7 +1,14 @@
 // Import de los estilos para la page de usuarios
 import "../assets/styles/users.css";
 // Import del componente tabla para listar los usuarios
-import DataTable from "../components/USERS/TableUser";
+import DataTable from "../components/TABLE/Table";
+// Import de los datos de los usuarios
+import { users } from "../components/USERS/mockdata";
+// Import del encabezado de la tabla
+import { HeaderTable } from "../components/USERS/HeaderTable";
+// Import del modelo de paginación
+
+const paginationModel = { page: 0, pageSize: 5 };
 
 export default function Users() {
   return (
@@ -12,7 +19,11 @@ export default function Users() {
         </header>
         <main className="users-container-main">
           <div className="users-container-table">
-            <DataTable />
+            <DataTable
+              rows={users}
+              columns={HeaderTable()}
+              paginationModel={paginationModel}
+            />
           </div>
         </main>
       </div>

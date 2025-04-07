@@ -57,10 +57,10 @@ export default function Sidebar() {
               {!isCollapsed && isSubmenuOpen && (
                 <ul className="sidebar-submenu">
                   <li>
-                    <Link to="/layout/users">Módulo 1</Link>
+                    <Link to="/layout/users">Usuarios</Link>
                   </li>
                   <li>
-                    <Link to="/layout/modulo2">Módulo 2</Link>
+                    <Link to="/layout/roles">Roles</Link>
                   </li>
                 </ul>
               )}
