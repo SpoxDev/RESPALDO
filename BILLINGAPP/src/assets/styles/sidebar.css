@@ -1,5 +1,5 @@
 :root {
-  --sidebar-background-color: #3D68A7;
+  --sidebar-background-color: #3d68a7;
   --sidebar-background-color-secondary: #fff;
 }
 
@@ -9,7 +9,7 @@
   width: 250px;
   height: 100%;
   background-color: var(--sidebar-background-color-secondary);
-  color: #3D68A7;
+  color: #3d68a7;
   border-right: 1px solid #c8c8c8;
   transition: width 0.3s ease;
   font-family: "Poppins", sans-serif;
@@ -70,6 +70,7 @@
   align-items: center;
   text-decoration: none !important;
   color: inherit;
+  gap: 0.5rem;
 }
 
 .sidebar-body-list-item-icon {
@@ -100,7 +101,7 @@
 
 .sidebar-submenu-item {
   width: 100%;
-  padding: 0.5rem;  
+  padding: 0.5rem;
 }
 .sidebar-submenu-item:hover {
   background-color: rgba(0, 0, 0, 0.05) !important;
@@ -108,11 +109,22 @@
 
 .sidebar-submenu {
   padding-left: 1.7rem;
-  list-style: none;  
+  list-style: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .submenu-toggle {
   cursor: pointer;
   display: flex;
   align-items: center;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+/* Estilo especial solo para ítems con submenús */
+.sidebar-body-list-item.has-submenu {
+  flex-direction: column;
+  align-items: flex-start;
 }

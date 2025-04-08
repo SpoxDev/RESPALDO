@@ -32,19 +32,14 @@ export default function Sidebar({ options }: Props) {
 
       <ul className="sidebar-body-list">
         {options.map(({ label, path, icon: Icon, subItems }) => (
-          <li key={label} className="sidebar-body-list-item">
+          <li key={label} className={`sidebar-body-list-item ${subItems ? "has-submenu" : ""}`}>
             {subItems ? (
               <>
-                <div
-                  className="submenu-toggle"
-                  onClick={() => toggleSubmenu(label)}
-                >
+                <div className="submenu-toggle" onClick={() => toggleSubmenu(label)}>
                   <Icon className="sidebar-body-list-item-icon" />
                   {!isCollapsed && (
                     <>
-                      <span className="sidebar-body-list-item-text">
-                        {label}
-                      </span>
+                      <span className="sidebar-body-list-item-text">{label}</span>
                       {openSubmenus[label] ? <ExpandLess /> : <ExpandMore />}
                     </>
                   )}
@@ -64,9 +59,7 @@ export default function Sidebar({ options }: Props) {
             ) : (
               <Link className="sidebar-body-list-item" to={path || "#"}>
                 <Icon className="sidebar-body-list-item-icon" />
-                {!isCollapsed && (
-                  <span className="sidebar-body-list-item-text">{label}</span>
-                )}
+                {!isCollapsed && <span className="sidebar-body-list-item-text">{label}</span>}
               </Link>
             )}
           </li>
