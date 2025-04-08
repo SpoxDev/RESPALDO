@@ -7,7 +7,7 @@ import Users from "../pages/Users";
 import Roles from "../pages/Roles";
 // Import de las variables de las rutas
 import ROUTES from "./variables_routes";
-
+import NotFound from "../pages/NotFound";
 export const Router = () => {
   return (
     <BrowserRouter>
@@ -18,6 +18,7 @@ export const Router = () => {
           <Route path={ROUTES.LAYOUT.SCHILD} element={<Users />} />
           <Route path={ROUTES.LAYOUT.TCHILD} element={<Roles />} />
         </Route>
+        <Route path={ROUTES.NOTFOUND.BASE} element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

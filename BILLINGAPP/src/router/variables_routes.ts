@@ -39,6 +39,10 @@ const ROUTES = {
       return `${this.BASE3}/example`;
     },
   },
+  /*Ruta para la pagina de error 404 */
+  NOTFOUND: {
+    BASE: "*",
+  },
 };
 
 export default ROUTES;

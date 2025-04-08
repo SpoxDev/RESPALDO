@@ -17,6 +17,8 @@
     "@toolpad/core": "^0.13.0",
     "format-util": "^1.0.5",
     "preact": "^10.26.2",
+    "react": "npm:@preact/compat@^18.3.1",
+    "react-dom": "npm:@preact/compat@^18.3.1",
     "react-router-dom": "^7.5.0"
   },
   "devDependencies": {

@@ -17,8 +17,12 @@ export const HeaderTable = () => [
     headerName: "Nombre completo",
     sortable: false,
     width: 160,
-    valueGetter: (value: string, row: any) =>
-      `${row.firstName || ""} ${row.lastName || ""}`,
+    valueGetter: (
+      {
+        /*value: string*/
+      },
+      row: any
+    ) => `${row.firstName || ""} ${row.lastName || ""}`,
   },
   { field: "status", headerName: "Estado", width: 130 },
 ];

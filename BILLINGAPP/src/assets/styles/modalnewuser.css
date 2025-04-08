@@ -1,4 +1,5 @@
-.custom-modal-overlay {
+/**************!Overlay del modal de nuevo usuario */
+.modal-new-user-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -8,10 +9,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 1000;
 }
-
-.custom-modal-content {
+/**************!Contenido del modal de nuevo usuario */
+.modal-new-user-content {
   background: white;
   padding: 2rem;
   border-radius: 8px;
@@ -21,14 +22,61 @@
   max-height: 90vh;
   position: relative;
 }
-
-.custom-modal-title {
+/**************!Titulo del modal de nuevo usuario */
+.modal-new-user-title {
   font-size: 2rem;
   text-align: center;
   margin-bottom: 1rem;
 }
+/**************!Formulario del modal de nuevo usuario */
+.modal-new-user-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+/*? Seccion de los inputs del formulario */
+.modal-new-user-form-section {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+}
+/* .first-name,
+.last-name,
+.email,
+.username,
+.password,
+.ci,
+.phone,
+.role,
+.status {
+  border: 1px solid blue !important;
+} */
+/*? Subseccion de los inputs del formulario */
+.modal-new-user-form-subsection {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  gap: 0.5rem;
+}
+.email {
+  width: 50% !important;
+}
+.status {
+  border: 1px solid black !important;
+  width: 100% !important;
+}
+.role {
+  border: 1px solid black !important;
+  display: flex;
+  align-items: center;
+  width: 100% !important;
+}
 
-.custom-modal-close {
+.MuiNativeSelect-select {
+  border: 1px solid blue !important;
+}
+/**************!Boton de cerrar el modal de nuevo usuario */
+.modal-new-user-close {
   position: absolute;
   top: 0.5rem;
   right: 0.7rem;
@@ -36,4 +84,10 @@
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
+}
+/**************!Seccion de los botones del formulario */
+.modal-new-user-form-buttons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
 }

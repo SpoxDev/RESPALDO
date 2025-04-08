@@ -19,12 +19,20 @@ export const adminSidebarOptions: SidebarOption[] = [
   },
   {
     label: "Configuración",
-    path: "/layout/settings",
     icon: SettingsIcon,
+    subItems: [
+      { label: "F.O.C", path: "/layout/settings" },
+      {
+        label: "S.O.C",
+        icon: SettingsIcon,
+        subItems: [{ label: "F.S.O.C", path: "/layout/settings" }],
+      },
+      { label: "T.O.C", path: "/layout/settings" },
+    ],
   },
   {
-    label: "Opcion xd",
-    path: "/layout/opcion-xd",
+    label: "Opcion Extra",
+    path: "/layout/opcion-extra",
     icon: SettingsIcon,
   },
 ];

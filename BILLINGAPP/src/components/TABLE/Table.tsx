@@ -1,19 +1,21 @@
+// Import del css de la tabla
+import "../../assets/styles/table.css";
+// Import de los componentes de mui
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import Paper from "@mui/material/Paper";
-// Import de los componentes de mui
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import Search from "@mui/icons-material/Search";
 import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
 import InfoIcon from "@mui/icons-material/Info";
-import { useState } from "preact/hooks";
+import { useMemo, useState } from "preact/hooks";
 import Edit from "@mui/icons-material/Edit";
 import { Add, Delete, Download, Refresh } from "@mui/icons-material";
 // Import del modal de nuevo usuario
-import ModalNewUser from "../LOGIN/Modal-NewUser";
-// Import del css de la tabla
-import "../../assets/styles/table.css";
+import ModalNewUser from "./MODAL/Modal-NewUser";
+// Import del debounce
+import debounce from "../../utils/debounce";
 
 // Props para el componente
 interface TableProps {
@@ -27,38 +29,47 @@ export default function DataTable({
   columns,
   paginationModel,
 }: TableProps) {
-  const [search, setSearch] = useState("");
-  const [selectedRows, setSelectedRows] = useState<any[]>([]); // Estado para filas seleccionadas
-  // COnstante para el modal
+  const [searchInput, setSearchInput] = useState(""); // lo que escribe el usuario
+  const [search, setSearch] = useState(""); // el estado final que usaremos para filtrar
+  const [selectedRows, setSelectedRows] = useState<any[]>([]);
   const [openModalNewUser, setOpenModalNewUser] = useState(false);
+
+  // Debounced search setter
+  const debouncedSetSearch = useMemo(
+    () => debounce((value: string) => setSearch(value), 300),
+    []
+  );
+
   const handleOpenModalNewUser = () => setOpenModalNewUser(true);
   const handleCloseModalNewUser = () => setOpenModalNewUser(false);
 
-  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch((event.target as HTMLInputElement).value);
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = (event.target as HTMLInputElement).value;
+    setSearchInput(value);
+    debouncedSetSearch(value); // actualiza "search" después del debounce
+    console.log(search);
   };
 
-  // Filtrado en todas las propiedades de las filas
   const filteredRows = rows.filter((row) =>
     Object.values(row).some((value) =>
       value?.toString().toLowerCase().includes(search.toLowerCase())
     )
   );
 
-  // Función para manejar la selección de filas
   const handleSelectionModelChange = (newSelection: any) => {
     setSelectedRows(newSelection);
   };
 
-  // Verificar si hay alguna fila seleccionada
   const isRowSelected = selectedRows.length > 0;
 
   return (
     <>
       <div className="container-table-search">
         <TextField
-          className={"container-table-search-input"}
-          placeholder={"Buscar usuario"}
+          className="container-table-search-input"
+          placeholder="Buscar usuario"
+          value={searchInput}
+          onChange={handleSearchChange}
           slotProps={{
             input: {
               startAdornment: (
@@ -69,7 +80,6 @@ export default function DataTable({
             },
           }}
           variant="outlined"
-          onChange={handleSearch}
         />
         <Tooltip title="Buscar usuario" placement="right" arrow>
           <InfoIcon
@@ -79,6 +89,7 @@ export default function DataTable({
           />
         </Tooltip>
       </div>
+
       <Paper sx={{ height: 400, width: "100%" }}>
         <DataGrid
           rows={filteredRows}
@@ -87,9 +98,10 @@ export default function DataTable({
           pageSizeOptions={[5, 10]}
           checkboxSelection
           rowSelectionModel={selectedRows}
-          onRowSelectionModelChange={handleSelectionModelChange} // Actualiza el estado de filas seleccionadas
+          onRowSelectionModelChange={handleSelectionModelChange}
         />
       </Paper>
+
       <div className="container-table-buttons">
         <section className="container-table-buttons-left">
           <Button variant="outlined" color="warning" endIcon={<Refresh />}>
@@ -111,7 +123,7 @@ export default function DataTable({
           <Button
             variant="contained"
             color="secondary"
-            disabled={!isRowSelected} // Deshabilitar si no hay fila seleccionada
+            disabled={!isRowSelected}
             endIcon={<Edit />}
           >
             Editar
@@ -119,13 +131,14 @@ export default function DataTable({
           <Button
             variant="contained"
             color="error"
-            disabled={!isRowSelected} // Deshabilitar si no hay fila seleccionada
+            disabled={!isRowSelected}
             endIcon={<Delete />}
           >
             Eliminar
           </Button>
         </section>
       </div>
+
       <ModalNewUser open={openModalNewUser} onClose={handleCloseModalNewUser} />
     </>
   );

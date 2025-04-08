@@ -10,8 +10,9 @@
  * password: Contraseña del usuario
  * phone: Teléfono del usuario
  * address: Dirección del usuario
- * status: Estado del usuario
  * fullName: Nombre completo del usuario
+ * role: Rol del usuario
+ * status: Estado del usuario
  */
 export const users = [
   {
@@ -24,8 +25,9 @@ export const users = [
     password: "123456",
     phone: "1234567890",
     address: "123 Main St",
+    fullName: "",
+    role: "administrador",
     status: true,
-    fullName: "John Doe",
   },
   {
     id: 2,
@@ -37,8 +39,9 @@ export const users = [
     password: "654321",
     phone: "0987654321",
     address: "456 Elm St",
+    fullName: "",
+    role: "asistente",
     status: false,
-    fullName: "Jane Doe",
   },
   {
     id: 3,
@@ -50,8 +53,9 @@ export const users = [
     password: "password1",
     phone: "1112223333",
     address: "789 Maple Ave",
-    status: true,
     fullName: "",
+    role: "medico",
+    status: true,
   },
   {
     id: 4,
@@ -63,8 +67,9 @@ export const users = [
     password: "password2",
     phone: "4445556666",
     address: "101 Pine St",
-    status: false,
     fullName: "",
+    role: "contable",
+    status: false,
   },
   {
     id: 5,
@@ -76,8 +81,9 @@ export const users = [
     password: "abc123",
     phone: "7778889999",
     address: "102 Oak St",
-    status: true,
     fullName: "",
+    role: "emisor",
+    status: true,
   },
   {
     id: 6,
@@ -89,8 +95,9 @@ export const users = [
     password: "wonderwoman",
     phone: "1231231234",
     address: "103 Birch St",
-    status: false,
     fullName: "",
+    role: "contable",
+    status: false,
   },
   {
     id: 7,
@@ -102,8 +109,9 @@ export const users = [
     password: "mrrobot",
     phone: "5556667777",
     address: "104 Cedar St",
-    status: true,
     fullName: "",
+    role: "emisor",
+    status: true,
   },
   {
     id: 8,
@@ -115,8 +123,9 @@ export const users = [
     password: "shameless",
     phone: "8889990000",
     address: "105 Spruce St",
-    status: true,
     fullName: "",
+    role: "contable",
+    status: true,
   },
   {
     id: 9,
@@ -128,8 +137,9 @@ export const users = [
     password: "diagnostic",
     phone: "2223334444",
     address: "106 Redwood St",
-    status: false,
     fullName: "",
+    role: "medico",
+    status: false,
   },
   {
     id: 10,
@@ -141,8 +151,9 @@ export const users = [
     password: "13reasons",
     phone: "3334445555",
     address: "107 Cypress St",
-    status: true,
     fullName: "",
+    role: "administrador",
+    status: true,
   },
   {
     id: 11,
@@ -154,8 +165,9 @@ export const users = [
     password: "gravity123",
     phone: "1112220000",
     address: "108 Apple St",
-    status: true,
     fullName: "",
+    role: "contable",
+    status: true,
   },
   {
     id: 12,
@@ -167,8 +179,9 @@ export const users = [
     password: "radioactive",
     phone: "3335559999",
     address: "109 Radiation Rd",
-    status: true,
     fullName: "",
+    role: "contable",
+    status: true,
   },
   {
     id: 13,
@@ -180,8 +193,9 @@ export const users = [
     password: "emc2rulez",
     phone: "4447778888",
     address: "110 Theory Ln",
-    status: true,
     fullName: "",
+    role: "contable",
+    status: true,
   },
   {
     id: 14,
@@ -193,8 +207,9 @@ export const users = [
     password: "firstcoder",
     phone: "9998887777",
     address: "111 Algorithm Ave",
-    status: false,
     fullName: "",
+    role: "contable",
+    status: false,
   },
   {
     id: 15,
@@ -206,8 +221,9 @@ export const users = [
     password: "alternating",
     phone: "6665554444",
     address: "112 Current Ct",
-    status: true,
     fullName: "",
+    role: "contable",
+    status: true,
   },
   {
     id: 16,
@@ -219,8 +235,9 @@ export const users = [
     password: "nasa123",
     phone: "2221113333",
     address: "113 Orbit Way",
-    status: false,
     fullName: "",
+    role: "emisor",
+    status: false,
   },
   {
     id: 17,
@@ -232,8 +249,9 @@ export const users = [
     password: "monalisa",
     phone: "5556667777",
     address: "114 Canvas Dr",
-    status: true,
     fullName: " Vinci",
+    role: "emisor",
+    status: true,
   },
   {
     id: 18,
@@ -245,8 +263,9 @@ export const users = [
     password: "stars123",
     phone: "1239876543",
     address: "115 Telescope St",
-    status: false,
     fullName: "",
+    role: "medico",
+    status: false,
   },
   {
     id: 19,
@@ -258,8 +277,9 @@ export const users = [
     password: "dnahelix",
     phone: "8881112222",
     address: "116 Double Helix Ln",
-    status: true,
     fullName: "",
+    role: "medico",
+    status: true,
   },
   {
     id: 20,
@@ -271,7 +291,31 @@ export const users = [
     password: "enigma123",
     phone: "4443332222",
     address: "117 Machine Way",
-    status: true,
     fullName: "",
+    role: "medico",
+    status: true,
+  },
+];
+
+export const roles = [
+  {
+    id: 1,
+    name: "Administrador",
+  },
+  {
+    id: 2,
+    name: "Asistente",
+  },
+  {
+    id: 3,
+    name: "Medico",
+  },
+  {
+    id: 4,
+    name: "Emisor",
+  },
+  {
+    id: 5,
+    name: "Contable",
   },
 ];

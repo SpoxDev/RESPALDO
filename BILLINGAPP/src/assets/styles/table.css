@@ -5,6 +5,7 @@
   flex-direction: row;
   align-items: center;
   gap: 10px;
+  margin-bottom: 10px;
 }
 .container-table-search-input {
   width: 360px !important;

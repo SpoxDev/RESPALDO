@@ -7,6 +7,7 @@ import {
 } from "@mui/material";
 
 interface InputFieldProps {
+  className?: string;
   label: string;
   name: string;
   id: string;
@@ -16,9 +17,12 @@ interface InputFieldProps {
   endAdornment?: React.ReactNode;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  error?: boolean;
+  helperText?: string;
 }
 
 export default function InputField({
+  className,
   label,
   name,
   id,
@@ -28,9 +32,10 @@ export default function InputField({
   endAdornment,
   value,
   onChange,
+  error = false,
 }: InputFieldProps) {
   return (
-    <FormControl fullWidth margin="normal">
+    <FormControl fullWidth margin="normal" className={className}>
       <InputLabel htmlFor={id}>{label}</InputLabel>
       <OutlinedInput
         id={id}
@@ -46,6 +51,7 @@ export default function InputField({
           ) : undefined
         }
         label={label}
+        error={error}
       />
     </FormControl>
   );

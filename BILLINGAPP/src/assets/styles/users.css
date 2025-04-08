@@ -21,7 +21,8 @@
 
 .users-container-table {
   width: 75%;
-  height: 100%;
+  min-height: 300px;
+  max-height: 500px;
   border-radius: 4px;
   display: flex;
   flex-direction: column;

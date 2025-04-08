@@ -46,13 +46,13 @@ export const roles = [
   },
   {
     id: 4,
-    name: "Cajero",
-    prefix: "CAJ",
+    name: "Emisor",
+    prefix: "EMI",
     status: true,
   },
   {
     id: 5,
-    name: "Contabilidad",
+    name: "Contable",
     prefix: "CON",
     status: false,
   },
