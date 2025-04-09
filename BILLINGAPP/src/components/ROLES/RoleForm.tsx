@@ -60,6 +60,7 @@ export default function RoleForm({ onCloseParentFromChild }: RoleFormProps) {
               value={formData.name}
               onChange={handleChange}
               error={formData.error}
+              required
             />
             <InputFieldRole
               label="Prefijo"
@@ -70,6 +71,7 @@ export default function RoleForm({ onCloseParentFromChild }: RoleFormProps) {
               value={formData.prefix}
               onChange={handleChange}
               error={formData.error}
+              required
             />
           </section>
           <section className="role-form-section">
@@ -78,6 +80,7 @@ export default function RoleForm({ onCloseParentFromChild }: RoleFormProps) {
                 value="true"
                 control={<Radio defaultChecked />}
                 label="Habilitado"
+                required
               />
             </RadioGroup>
           </section>

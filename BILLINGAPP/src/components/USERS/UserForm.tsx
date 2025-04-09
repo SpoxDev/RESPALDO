@@ -91,6 +91,13 @@ export default function UserForm({ onCloseParentFromChild }: UserFormProps) {
       });
       return;
     }
+    // Funcion para manejar el cambio del status
+    if (name === "status") {
+      setFormData((prev) => ({
+        ...prev,
+        status: value,
+      }));
+    }
 
     // Otros campos
     setFormData((prev) => ({
@@ -265,13 +272,14 @@ export default function UserForm({ onCloseParentFromChild }: UserFormProps) {
                 <RadioGroup
                   aria-labelledby="user-form-input-status-label"
                   name="user-form-input-status-group"
-                  value={formData.status}
                   onChange={handleChange}
+                  value={formData.status}
                 >
                   <FormControlLabel
-                    value="true"
-                    control={<Radio />}
-                    label="Activo"
+                    value="false"
+                    control={<Radio defaultChecked />}
+                    label="Habilitado"
+                    required
                   />
                 </RadioGroup>
               </FormControl>
