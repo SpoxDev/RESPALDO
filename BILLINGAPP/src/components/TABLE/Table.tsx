@@ -29,7 +29,7 @@ interface TableProps {
   rows: any[];
   columns: GridColDef[];
   paginationModel: { page: number; pageSize: number };
-  typeForm: "users" | "roles" | "permissions";
+  typeForm: "users" | "roles" | "permissions" | "permissions-to-roles";
 }
 
 export default function DataTable({

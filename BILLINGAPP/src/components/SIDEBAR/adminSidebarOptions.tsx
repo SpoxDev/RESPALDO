@@ -35,6 +35,7 @@ export const adminSidebarOptions: SidebarOption[] = [
       { label: "Roles", path: ROUTES.LAYOUT.TCHILD },
       { label: "Edición de roles", path: ROUTES.LAYOUT.RCHILD },
       { label: "Permisos", path: ROUTES.LAYOUT.PCHILD },
+      { label: "Permisos a roles", path: ROUTES.LAYOUT.APCHILD },
     ],
   },
   {

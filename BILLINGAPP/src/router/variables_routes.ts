@@ -5,6 +5,14 @@
  * @since 1.0.0
  * @category Router
  * @subcategory VariablesRoutes
+ * @abstract {BASE} - Ruta base
+ * @abstract {FCHILD} - Ruta First Child - Dashboard de la ruta base
+ * @abstract {SCHILD} - Ruta Second Child - Users de la ruta base
+ * @abstract {UCHILD} - Ruta Third Child - Edit User de la ruta base
+ * @abstract {TCHILD} - Ruta Fourth Child - Roles de la ruta base
+ * @abstract {RCHILD} - Ruta Fifth Child - Edit Role de la ruta base
+ * @abstract {PCHILD} - Ruta Sixth Child - Permissions de la ruta base
+ * @abstract {APCHILD} - Ruta Seventh Child - Asign Permission to Rol de la ruta base
  */
 
 const ROUTES = {
@@ -34,6 +42,9 @@ const ROUTES = {
     },
     get PCHILD() {
       return `${this.BASE}/permissions`;
+    },
+    get APCHILD() {
+      return `${this.BASE}/asign-permission-to-rol`;
     },
   },
   /*Ruta segundo padre para listar los modulos */

@@ -18,7 +18,7 @@ import PermissionForm from "../../PERMISSION/PermissionForm";
 interface ModalFormProps {
   open: boolean;
   onClose: () => void;
-  typeFormInModal: "users" | "roles" | "permissions";
+  typeFormInModal: "users" | "roles" | "permissions" | "permissions-to-roles";
 }
 
 export default function ModalForm({
