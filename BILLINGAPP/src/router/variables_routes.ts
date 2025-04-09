@@ -1,4 +1,11 @@
-// Objeto para almacenar las variables de las rutas de acceso
+/**
+ * Objeto para almacenar las variables de las rutas de acceso
+ * @description Este objeto se encarga de almacenar las variables de las rutas de acceso
+ * @version 1.0.0
+ * @since 1.0.0
+ * @category Router
+ * @subcategory VariablesRoutes
+ */
 
 const ROUTES = {
   /*Ruta de login */
@@ -18,6 +25,12 @@ const ROUTES = {
     },
     get TCHILD() {
       return `${this.BASE}/roles`;
+    },
+    get UCHILD() {
+      return `${this.BASE}/users-edit`;
+    },
+    get RCHILD() {
+      return `${this.BASE}/roles-edit`;
     },
   },
   /*Ruta segundo padre para listar los modulos */

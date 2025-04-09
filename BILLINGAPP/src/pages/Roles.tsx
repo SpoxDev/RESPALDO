@@ -18,6 +18,7 @@ import "../assets/styles/roles.css";
 // Import de los estilos de la tabla
 import "../assets/styles/table.css";
 
+// Modelo de paginación para la tabla de roles
 const paginationModel = { page: 0, pageSize: 5 };
 
 export default function Roles() {

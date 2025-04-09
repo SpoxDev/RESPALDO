@@ -14,11 +14,9 @@ import "../../assets/styles/table.css";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
 import Search from "@mui/icons-material/Search";
 import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
-import InfoIcon from "@mui/icons-material/Info";
 import { useMemo, useState } from "preact/hooks";
 import Edit from "@mui/icons-material/Edit";
 import { Add, Delete, Download, Refresh } from "@mui/icons-material";
@@ -78,7 +76,7 @@ export default function DataTable({
       <div className="container-table-search">
         <TextField
           className="container-table-search-input"
-          placeholder="Buscar usuario"
+          placeholder={`Buscar ${typeForm}`}
           value={searchInput}
           onChange={handleSearchChange}
           slotProps={{
@@ -92,13 +90,6 @@ export default function DataTable({
           }}
           variant="outlined"
         />
-        <Tooltip title="Buscar usuario" placement="right" arrow>
-          <InfoIcon
-            className="container-table-search-info"
-            color="secondary"
-            aria-label="info"
-          />
-        </Tooltip>
       </div>
 
       <Paper sx={{ height: 400, width: "100%" }}>

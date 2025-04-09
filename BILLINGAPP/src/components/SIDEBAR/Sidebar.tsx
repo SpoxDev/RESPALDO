@@ -1,3 +1,15 @@
+/**
+ * Componente Sidebar
+ * @param {SidebarOption[]} options - Opciones del sidebar
+ * @returns {JSX.Element} - Elemento JSX que representa el sidebar
+ * @version 1.0.0
+ * @since 1.0.0
+ * @category Components
+ * @subcategory Sidebar
+ * @see SidebarOption
+ * @see Link
+ */
+
 import "../../assets/styles/sidebar.css";
 import { IconButton } from "@mui/material";
 import { ChevronLeft, Menu, ExpandLess, ExpandMore } from "@mui/icons-material";

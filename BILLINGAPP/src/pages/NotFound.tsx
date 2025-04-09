@@ -11,7 +11,7 @@ export default function NotFound() {
       <p className="not-found-description">
         La página que estás buscando no existe.
       </p>
-      <Link to={ROUTES.LAYOUT.BASE} className="not-found-link">
+      <Link to={ROUTES.LAYOUT.FCHILD} className="not-found-link">
         Volver al inicio
       </Link>
     </div>

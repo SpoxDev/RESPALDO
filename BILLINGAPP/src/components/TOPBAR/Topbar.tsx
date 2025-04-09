@@ -16,6 +16,8 @@ import { Link as RouterLink } from "react-router-dom";
 import { useState } from "react";
 import "../../assets/styles/topbar.css";
 import Home from "@mui/icons-material/Home";
+// Import de las rutas
+import ROUTES from "../../router/variables_routes";
 
 export default function Topbar() {
   const [showDrawer, setShowDrawer] = useState(false);
@@ -28,7 +30,7 @@ export default function Topbar() {
     <>
       <div className="topbar-container">
         <div className="topbar-left">
-          <Link component={RouterLink} to="/layout/dashboard">
+          <Link component={RouterLink} to={ROUTES.LAYOUT.FCHILD}>
             <img src={logo} alt="logo" className="topbar-left-logo" />
           </Link>
           <h3>Modo: Administrador</h3>
@@ -40,7 +42,7 @@ export default function Topbar() {
               <Link
                 className="topbar-right-list-item"
                 component={RouterLink}
-                to="/"
+                to={ROUTES.LAYOUT.FCHILD}
               >
                 <Home />
               </Link>
