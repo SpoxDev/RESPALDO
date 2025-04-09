@@ -5,21 +5,8 @@ import {
   OutlinedInput,
   InputAdornment,
 } from "@mui/material";
-
-interface InputFieldProps {
-  className?: string;
-  label: string;
-  name: string;
-  id: string;
-  placeholder?: string;
-  type?: string;
-  required?: boolean;
-  endAdornment?: React.ReactNode;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  error?: boolean;
-  helperText?: string;
-}
+// Import del tipo para el input field de los campos para el formulario de user
+import { InputFieldProps } from "../types/InputFieldUserProps";
 
 export default function InputField({
   className,

@@ -13,11 +13,12 @@ import "../../../assets/styles/modalform.css";
 // Import de los componentes de los formularios
 import UserForm from "../../USERS/UserForm";
 import RoleForm from "../../ROLES/RoleForm";
+import PermissionForm from "../../PERMISSION/PermissionForm";
 
 interface ModalFormProps {
   open: boolean;
   onClose: () => void;
-  typeFormInModal: "users" | "roles";
+  typeFormInModal: "users" | "roles" | "permissions";
 }
 
 export default function ModalForm({
@@ -50,6 +51,12 @@ export default function ModalForm({
             {/* Se muestra el formulario de roles */}
             {/* Se pasa la funcion handleCloseFromChild como prop al formulario de roles */}
             <RoleForm onCloseParentFromChild={handleCloseFromChild} />
+          </>
+        ) : typeFormInModal === "permissions" ? (
+          <>
+            {/* Se muestra el formulario de permisos */}
+            {/* Se pasa la funcion handleCloseFromChild como prop al formulario de permisos */}
+            <PermissionForm onCloseParentFromChild={handleCloseFromChild} />
           </>
         ) : null}
       </div>

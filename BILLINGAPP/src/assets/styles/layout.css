@@ -7,10 +7,11 @@
   align-items: center;
   height: 100%;
   background-color: var(--background-color);
+  width: 100%;
 }
 
 .layout-main {
-  width: 100%;
+  width: calc(100% - 20px) !important;
   height: 100%;
   padding: 1rem;
 }

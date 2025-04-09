@@ -1,6 +1,11 @@
 /**
  * Componente para el encabezado de la tabla de usuarios
  * @returns {JSX.Element}
+ * @description Este componente se encarga de mostrar el encabezado de la tabla de usuarios
+ * @version 1.0.0
+ * @since 1.0.0
+ * @category Components
+ * @subcategory Users
  */
 
 export const HeaderTable = () => [

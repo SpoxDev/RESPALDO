@@ -17,7 +17,7 @@ import Button from "@mui/material/Button";
 import Search from "@mui/icons-material/Search";
 import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
-import { useMemo, useState } from "preact/hooks";
+import { useMemo, useState } from "react";
 import Edit from "@mui/icons-material/Edit";
 import { Add, Delete, Download, Refresh } from "@mui/icons-material";
 import ModalForm from "./MODAL/ModalForm";
@@ -29,7 +29,7 @@ interface TableProps {
   rows: any[];
   columns: GridColDef[];
   paginationModel: { page: number; pageSize: number };
-  typeForm: "users" | "roles";
+  typeForm: "users" | "roles" | "permissions";
 }
 
 export default function DataTable({

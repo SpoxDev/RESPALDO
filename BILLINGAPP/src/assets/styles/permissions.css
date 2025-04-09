@@ -1,0 +1,39 @@
+/* Contenedor de la pagina de permisos */
+.container-permission-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Contenedor del header de la pagina de permisos */
+.container-permission-page-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Contenedor del main de la pagina de permisos */
+.container-permission-page-main {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 0.5rem;
+}
+
+/* Contenedor de la tabla de la pagina de permisos */
+.container-permission-page-table {
+  width: 75%;
+  min-height: 300px;
+  max-height: 500px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

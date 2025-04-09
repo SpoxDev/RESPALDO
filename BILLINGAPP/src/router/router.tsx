@@ -7,6 +7,7 @@ import Users from "../pages/Users";
 import UsersEdit from "../pages/EditUserPage";
 import Roles from "../pages/Roles";
 import EditRolePage from "../pages/EditRolePage";
+import PermisionPage from "../pages/PermisionPage";
 // Import de las variables de las rutas
 import ROUTES from "./variables_routes";
 import NotFound from "../pages/NotFound";
@@ -21,6 +22,7 @@ export const Router = () => {
           <Route path={ROUTES.LAYOUT.UCHILD} element={<UsersEdit />} />
           <Route path={ROUTES.LAYOUT.TCHILD} element={<Roles />} />
           <Route path={ROUTES.LAYOUT.RCHILD} element={<EditRolePage />} />
+          <Route path={ROUTES.LAYOUT.PCHILD} element={<PermisionPage />} />
         </Route>
         <Route path={ROUTES.NOTFOUND.BASE} element={<NotFound />} />
       </Routes>

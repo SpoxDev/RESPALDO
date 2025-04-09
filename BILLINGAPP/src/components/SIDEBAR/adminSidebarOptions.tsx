@@ -17,17 +17,24 @@ import ROUTES from "../../router/variables_routes";
 export const adminSidebarOptions: SidebarOption[] = [
   {
     label: "Dashboard",
-    path: "/layout/dashboard",
+    path: ROUTES.LAYOUT.FCHILD,
     icon: Dashboard,
   },
   {
     label: "Admin",
     icon: AdminPanelSettingsIcon,
     subItems: [
-      { label: "Usuarios", path: "/layout/users" },
+      {
+        label: "Usuarios",
+        path: ROUTES.LAYOUT.SCHILD,
+        // subItems: [
+        //   { label: "Edición de usuarios", path: ROUTES.LAYOUT.UCHILD },
+        // ],
+      },
       { label: "Edición de usuarios", path: ROUTES.LAYOUT.UCHILD },
-      { label: "Roles", path: "/layout/roles" },
-      { label: "Edición de roles", path: "/layout/roles-edit" },
+      { label: "Roles", path: ROUTES.LAYOUT.TCHILD },
+      { label: "Edición de roles", path: ROUTES.LAYOUT.RCHILD },
+      { label: "Permisos", path: ROUTES.LAYOUT.PCHILD },
     ],
   },
   {

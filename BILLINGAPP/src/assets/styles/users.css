@@ -3,6 +3,8 @@
   flex-direction: column;
   gap: 20px;
   font-family: "Poppins", sans-serif;
+  height: 100%;
+  /* width: calc(100% - 64px) !important; */
 }
 .users-container-header {
   display: flex;
@@ -23,7 +25,7 @@
 .users-container-table {
   width: 75%;
   min-height: 300px;
-  max-height: 500px;
+  max-height: 600px;
   border-radius: 4px;
   display: flex;
   flex-direction: column;

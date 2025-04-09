@@ -23,14 +23,17 @@ const ROUTES = {
     get SCHILD() {
       return `${this.BASE}/users`;
     },
-    get TCHILD() {
-      return `${this.BASE}/roles`;
-    },
     get UCHILD() {
       return `${this.BASE}/users-edit`;
     },
+    get TCHILD() {
+      return `${this.BASE}/roles`;
+    },
     get RCHILD() {
       return `${this.BASE}/roles-edit`;
+    },
+    get PCHILD() {
+      return `${this.BASE}/permissions`;
     },
   },
   /*Ruta segundo padre para listar los modulos */

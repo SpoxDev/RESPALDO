@@ -1,0 +1,61 @@
+/* Contenedor del formulario de permisos */
+.container-create-permission-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+/* Contenedor del header del formulario de permisos */
+.permission-form-header {
+  display: flex;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Contenedor del main del formulario de permisos */
+.permission-form-main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Contenedor del formulario de permisos */
+.permission-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Contenedor de la seccion del formulario de permisos */
+.permission-form-section {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1rem;
+}
+
+/* Contenedor del prefijo del formulario de permisos */
+.permission-form-prefix {
+  display: flex;
+  width: 100%;
+}
+
+/* Contenedor del grupo de radio del formulario de permisos */
+.permission-form-radio-group {
+  display: flex;
+  width: 100%;
+  align-items: start;
+  justify-content: center;
+}
+
+/* Contenedor de los botones del formulario de permisos */
+.permission-form-buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 1rem;
+}
