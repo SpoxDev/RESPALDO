@@ -5,7 +5,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import "../../../assets/styles/modalnewuser.css";
 import { useState } from "preact/hooks";
 // Imports de componentes propios
-import InputField from "../../../utils/InputField";
+import InputField from "../../../utils/InputFieldUser";
 import ChildModal from "./ChildModal";
 import {
   FormControl,

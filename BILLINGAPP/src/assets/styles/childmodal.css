@@ -3,10 +3,18 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px;
-  background-color: #fff;
+  width: 600px;
+  background-color: #e7ecf4;
+  border: 2px solid #000;
   box-shadow: 24;
   border-radius: 10px;
+  padding: 1rem;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.child-modal-title {
+  display: flex;
 }
 
 /*? Seccion de los botones */
@@ -14,4 +22,5 @@
   display: flex;
   justify-content: flex-end;
   gap: 10px;
+  padding: 0px 0px 0px 10px;
 }

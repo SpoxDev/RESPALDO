@@ -1,3 +1,9 @@
+/**
+ * @fileoverview Componente Login
+ * @description Componente que muestra un formulario para iniciar sesión
+ * @returns {JSX.Element} - Elemento JSX que representa el formulario
+ */
+
 // Import de los estilos
 import "../assets/styles/login.css";
 // Import de los componentes de material ui
@@ -82,7 +88,7 @@ export default function Login() {
 
         <form onSubmit={handleLogin} className="login-form">
           <FormControl className="login-form-control" error={!!usernameError}>
-            <InputLabel htmlFor="login-outlined-username">Username</InputLabel>
+            <InputLabel htmlFor="login-outlined-username">Usuario</InputLabel>
             <OutlinedInput
               id="login-outlined-username"
               type="text"
@@ -104,7 +110,9 @@ export default function Login() {
           </FormControl>
 
           <FormControl className="login-form-control" error={!!passwordError}>
-            <InputLabel htmlFor="login-outlined-password">Password</InputLabel>
+            <InputLabel htmlFor="login-outlined-password">
+              Contraseña
+            </InputLabel>
             <OutlinedInput
               id="login-outlined-password"
               type={showPassword ? "text" : "password"}
@@ -125,7 +133,7 @@ export default function Login() {
                   </IconButton>
                 </InputAdornment>
               }
-              label="Contraseña"
+              label="Contrasea"
               autoComplete="password"
               required
             />

@@ -1,3 +1,13 @@
+/**
+ * @fileoverview Componente DataTable
+ * @description Componente que muestra una tabla de datos
+ * @returns {JSX.Element} - Elemento JSX que representa la tabla.
+ * @param {any[]} rows - Datos de la tabla
+ * @param {GridColDef[]} columns - Columnas de la tabla
+ * @param {Object} paginationModel - Modelo de paginación
+ * @param {string} typeForm - Tipo de formulario a mostrar en el modal
+ */
+
 // Import del css de la tabla
 import "../../assets/styles/table.css";
 // Import de los componentes de mui
@@ -12,8 +22,7 @@ import InfoIcon from "@mui/icons-material/Info";
 import { useMemo, useState } from "preact/hooks";
 import Edit from "@mui/icons-material/Edit";
 import { Add, Delete, Download, Refresh } from "@mui/icons-material";
-// Import del modal de nuevo usuario
-import ModalNewUser from "./MODAL/Modal-NewUser";
+import ModalForm from "./MODAL/ModalForm";
 // Import del debounce
 import debounce from "../../utils/debounce";
 
@@ -22,17 +31,19 @@ interface TableProps {
   rows: any[];
   columns: GridColDef[];
   paginationModel: { page: number; pageSize: number };
+  typeForm: "users" | "roles";
 }
 
 export default function DataTable({
   rows,
   columns,
   paginationModel,
+  typeForm,
 }: TableProps) {
   const [searchInput, setSearchInput] = useState(""); // lo que escribe el usuario
   const [search, setSearch] = useState(""); // el estado final que usaremos para filtrar
   const [selectedRows, setSelectedRows] = useState<any[]>([]);
-  const [openModalNewUser, setOpenModalNewUser] = useState(false);
+  const [openModalForm, setOpenModalForm] = useState(false);
 
   // Debounced search setter
   const debouncedSetSearch = useMemo(
@@ -40,8 +51,8 @@ export default function DataTable({
     []
   );
 
-  const handleOpenModalNewUser = () => setOpenModalNewUser(true);
-  const handleCloseModalNewUser = () => setOpenModalNewUser(false);
+  const handleOpenModalForm = () => setOpenModalForm(true);
+  const handleCloseModalForm = () => setOpenModalForm(false);
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = (event.target as HTMLInputElement).value;
@@ -116,7 +127,7 @@ export default function DataTable({
             variant="contained"
             color="primary"
             endIcon={<Add />}
-            onClick={handleOpenModalNewUser}
+            onClick={handleOpenModalForm}
           >
             Nuevo
           </Button>
@@ -139,7 +150,11 @@ export default function DataTable({
         </section>
       </div>
 
-      <ModalNewUser open={openModalNewUser} onClose={handleCloseModalNewUser} />
+      <ModalForm
+        open={openModalForm}
+        onClose={handleCloseModalForm}
+        typeFormInModal={typeForm}
+      />
     </>
   );
 }

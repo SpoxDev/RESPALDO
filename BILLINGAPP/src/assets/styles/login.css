@@ -102,3 +102,7 @@
   width: 100%;
   gap: 0.5rem;
 }
+
+.login-error-text {
+  color: red;
+}

@@ -1,26 +1,142 @@
-<Modal
-  open={open}
-  onClose={onClose}
-  aria-labelledby="modal-modal-title"
-  aria-describedby="modal-modal-description"
->
-  <Box
-    sx={{
-      position: "absolute" as const,
-      top: "50%",
-      left: "50%",
-      transform: "translate(-50%, -50%)",
-      width: 400,
-      bgcolor: "background.paper",
-      border: "2px solid #000",
-      boxShadow: 24,
-      p: 4,
-    }}
-  >
-    <h1>Nuevo usuario</h1>
-    <form>
-      <input type="text" placeholder="Nombre" />
-      <input type="text" placeholder="Apellido" />
+¡Perfecto! Estás muy cerca. Sí, ahora vamos a **refactorizar este componente `ModalForm`** para que use el componente genérico `UserForm.tsx` (que ya renombraremos a `DynamicForm.tsx` o algo más neutro si quieres).
+
+La idea es que no tengas un `UserForm` ni `RoleForm` separados, sino un solo componente que reciba vía props un array de campos (inputs) a renderizar.
+
+### ✅ Refactor paso a paso
+
+#### 1. Cambiar el nombre del componente `UserForm.tsx` a algo como `DynamicForm.tsx`
+
+Ese será nuestro formulario reutilizable.
+
+#### 2. Refactorizar `ModalForm.tsx` para usar ese componente único.
+
+Aquí te muestro cómo quedaría el nuevo `ModalForm.tsx` **usando `DynamicForm.tsx`** y una definición de formularios según el tipo (`users` o `roles`):
+
+---
+
+### 📄 `ModalForm.tsx`
+
+```tsx
+import CloseIcon from "@mui/icons-material/Close";
+import "../../../assets/styles/modalnewuser.css";
+
+// Importa tu nuevo formulario dinámico
+import DynamicForm from "./DynamicForm";
+
+interface ModalFormProps {
+  open: boolean;
+  onClose: () => void;
+  typeFormInModal: "users" | "roles";
+}
+
+const formConfig = {
+  users: {
+    title: "Nuevo Usuario",
+    fields: [
+      { label: "Nombre", name: "name", type: "text" },
+      { label: "Correo", name: "email", type: "email" },
+      { label: "Contraseña", name: "password", type: "password" },
+      { label: "Rol", name: "role", type: "select", options: ["Admin", "Doctor", "Contador"] },
+    ],
+  },
+  roles: {
+    title: "Nuevo Rol",
+    fields: [
+      { label: "Nombre del rol", name: "roleName", type: "text" },
+      { label: "Descripción", name: "description", type: "textarea" },
+    ],
+  },
+};
+
+export default function ModalForm({ open, onClose, typeFormInModal }: ModalFormProps) {
+  if (!open) return null;
+
+  const config = formConfig[typeFormInModal];
+
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+        <button className="modal-close" onClick={onClose}>
+          <CloseIcon />
+        </button>
+        <h2>{config.title}</h2>
+        <DynamicForm fields={config.fields} onClose={onClose} />
+      </div>
+    </div>
+  );
+}
+```
+
+---
+
+### 📄 `DynamicForm.tsx`
+
+Este será tu componente genérico, que renderiza cualquier formulario según los campos recibidos.
+
+```tsx
+import { useState } from "react";
+
+interface FieldConfig {
+  label: string;
+  name: string;
+  type: "text" | "email" | "password" | "select" | "textarea";
+  options?: string[]; // solo para selects
+}
+
+interface DynamicFormProps {
+  fields: FieldConfig[];
+  onClose: () => void;
+}
+
+export default function DynamicForm({ fields, onClose }: DynamicFormProps) {
+  const [formData, setFormData] = useState<Record<string, string>>({});
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Formulario enviado:", formData);
+    onClose();
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="form-container">
+      {fields.map(field => (
+        <div key={field.name} className="form-group">
+          <label htmlFor={field.name}>{field.label}</label>
+          {field.type === "select" ? (
+            <select name={field.name} value={formData[field.name] || ""} onChange={handleChange}>
+              <option value="">Seleccione una opción</option>
+              {field.options?.map(option => (
+                <option key={option} value={option}>{option}</option>
+              ))}
+            </select>
+          ) : field.type === "textarea" ? (
+            <textarea name={field.name} value={formData[field.name] || ""} onChange={handleChange} />
+          ) : (
+            <input type={field.type} name={field.name} value={formData[field.name] || ""} onChange={handleChange} />
+          )}
+        </div>
+      ))}
+      <div className="form-actions">
+        <button type="submit">Guardar</button>
+      </div>
     </form>
-  </Box>
-</Modal>
+  );
+}
+```
+
+---
+
+### 🧩 Ventajas del refactor
+
+- Un solo componente (`DynamicForm`) para múltiples formularios.
+- Configurable con solo cambiar los campos desde `ModalForm.tsx`.
+- Escalable para más formularios como "nuevo paciente", "nueva cita", etc.
+
+---
+
+¿Te gustaría que también te ayude con los estilos y validaciones, o que los campos puedan recibir valores iniciales para edición en el futuro?

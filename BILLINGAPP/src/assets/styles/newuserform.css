@@ -1,0 +1,81 @@
+.user-form-container {
+  display: flex;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+}
+
+.user-form-title {
+  align-self: center;
+}
+
+.user-form-section {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/*Seccion dos Email - Username Password*/
+.email {
+  display: flex;
+  width: 50% !important;
+}
+.user-form-subsection {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 50% !important;
+}
+/*Contenedor de los inputs de fecha y hora*/
+.user-form-date-picker {
+  display: flex;
+  flex-direction: column;
+  width: 100% !important;
+  justify-content: center;
+  gap: 0.5rem;
+}
+/*Contenedor top del datepicker*/
+.user-form-date-picker-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100% !important;
+  gap: 0.5rem;
+}
+/*Contenedor de los inputs de fecha y hora*/
+.user-form-date-time-start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 50% !important;
+  font-family: "Poppins", sans-serif !important;
+}
+.user-form-date-time-end {
+  display: flex;
+  align-items: center;
+  width: 50% !important;
+  font-family: "Poppins", sans-serif !important;
+}
+#startTime,
+#endTime {
+  font-family: "Poppins", sans-serif !important;
+  height: 3rem;
+  border: 1px solid #79747e !important;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+}
+.user-form-date-error {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+  align-self: center;
+}
+/*Seccion de los botones*/
+.user-form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 0.5rem;
+}

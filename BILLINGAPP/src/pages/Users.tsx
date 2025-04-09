@@ -1,3 +1,13 @@
+/**
+ * @fileoverview Componente Users
+ * @description Componente que muestra una página de usuarios
+ * @returns {JSX.Element} - Elemento JSX que representa la página de usuarios
+ * @param {Object} paginationModel - Modelo de paginación para la tabla de usuarios
+ * @param {string} typeForm - Tipo de formulario a mostrar en el modal
+ * @param {any[]} rows - Datos de la tabla de usuarios
+ * @param {GridColDef[]} columns - Columnas de la tabla de usuarios
+ */
+
 // Import de los estilos para la page de usuarios
 import "../assets/styles/users.css";
 // Import del componente tabla para listar los usuarios
@@ -24,6 +34,7 @@ export default function Users() {
               rows={users}
               columns={HeaderTable()}
               paginationModel={paginationModel}
+              typeForm="users"
             />
           </div>
         </main>

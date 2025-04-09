@@ -1,3 +1,13 @@
+/**
+ * @fileoverview Componente Roles
+ * @description Componente que muestra una página de roles
+ * @returns {JSX.Element} - Elemento JSX que representa la página de roles
+ * @param {Object} paginationModel - Modelo de paginación para la tabla de roles
+ * @param {string} typeForm - Tipo de formulario a mostrar en el modal
+ * @param {any[]} rows - Datos de la tabla de roles
+ * @param {GridColDef[]} columns - Columnas de la tabla de roles
+ */
+
 import DataTable from "../components/TABLE/Table";
 // Import de los datos de los roles
 import { roles } from "../components/ROLES/roles-mockdata";
@@ -23,6 +33,7 @@ export default function Roles() {
               rows={roles}
               columns={HeaderTable()}
               paginationModel={paginationModel}
+              typeForm="roles"
             />
           </div>
         </main>
